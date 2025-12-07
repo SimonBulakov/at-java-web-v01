@@ -13,7 +13,7 @@ public class SimpleTestWithXPath01 {
     }
 
     @Test
-    public void testPageH1() {
+    void testPageH1() {
         $x("//h1").shouldHave(text("Учебная страница для XPath"));
         $x("//h1").shouldHave(exactText("Учебная страница для XPath"));
     }
