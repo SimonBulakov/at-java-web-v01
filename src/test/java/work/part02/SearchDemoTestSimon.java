@@ -19,10 +19,12 @@ public class SearchDemoTestSimon {
         //Поиск по атрибуту name (поиск по имени элемента)
         $(By.name("interests")).shouldBe(visible);
         $(By.name("user_email")).shouldBe(visible);
+        $(("[name=user_email]")).shouldBe(visible); //cssSelector для name
 
         //Поиск по имени класса
         $(By.className("nav-link")).shouldBe(visible);
         $(By.className("btn")).shouldBe(visible);
+        $(".btn").shouldBe(visible); //cssSelector для класса
 
         //Поиск по имени тега
         $(By.tagName("input")).shouldBe(visible);
