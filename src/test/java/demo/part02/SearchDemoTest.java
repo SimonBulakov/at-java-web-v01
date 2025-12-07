@@ -11,11 +11,14 @@ public class SearchDemoTest {
     public void testElementSearchMethods() {
         open("https://slqamsk.github.io/demo/search-demo/");
 
+        //Полный длинный вариант
         By myLocator = By.id("submit-button");
         SelenideElement myElement = Selenide.element(myLocator);
         myElement.shouldBe(Condition.visible);
 
+        //Упрощенный вариант
         element(By.id("submit-button")).shouldBe(visible);
+        //Упрощенный короткий вариант
         $(By.id("submit-button")).shouldBe(visible);
 
         $(By.name("interests")).shouldBe(visible);
