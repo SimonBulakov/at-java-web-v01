@@ -1,34 +1,34 @@
 package demo.part02;
+
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import static com.codeborne.selenide.Condition.*;
+
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
-public class SearchDemoTest {
+
+public class SearchDemoSecondTest {
     @Test
     public void testElementSearchMethods() {
         open("https://slqamsk.github.io/demo/search-demo/");
-
-        //Полный длинный вариант
-        By myLocator = By.id("submit-button");
-        SelenideElement myElement = Selenide.element(myLocator);
-        myElement.shouldBe(visible);
-        myElement.shouldBe(Condition.visible);
-<<<<<<< HEAD
-
-        //Упрощенный вариант
-=======
->>>>>>> 89f20c47b46e5accd16a3aeb75e104e8b06abbaf
-        element(By.id("submit-button")).shouldBe(visible);
-        //Упрощенный короткий вариант
         $(By.id("submit-button")).shouldBe(visible);
+        $("#submit-button").shouldBe(visible);
 
         $(By.name("interests")).shouldBe(visible);
+        $("[name=interests]").shouldBe(visible);
+
         $(By.className("nav-link")).shouldBe(visible);
+        $(".nav-link").shouldBe(visible);
+
         $(By.tagName("input")).shouldBe(visible);
+        $("input").shouldBe(visible);
+
         $(By.linkText("Контакты и обратная связь")).shouldBe(visible);
+        //Нет аналогов в CSS
+
         $(By.partialLinkText("длинный")).shouldBe(visible);
+        //Нет аналогов в CSS
     }
 }
