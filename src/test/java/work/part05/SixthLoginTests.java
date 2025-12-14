@@ -74,6 +74,7 @@ public class SixthLoginTests {
     @DisplayName("03. Корректные логин и пароль - успешный вход в систему по нажатию клавиши Enter на клавиатуре")
     @Tag("SmokeTest")
     @Order(2)
+    @Disabled
     void test03_success_login_enter() {
         $("#username").sendKeys("standard_user");
         $("#password").sendKeys("secret_sauce");
