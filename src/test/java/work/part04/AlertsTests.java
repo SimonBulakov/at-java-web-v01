@@ -1,16 +1,25 @@
 package work.part04;
 
+import com.codeborne.selenide.Browsers;
 import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Alert;
 
 import static com.codeborne.selenide.Selenide.*;
 
 public class AlertsTests {
+    @BeforeAll
+    static void beforeAll() { Configuration.pageLoadStrategy = "eager";
+    }
+
+    @BeforeEach
+    void beforeEachTest() {
+        open("https://practice-automation.com/popups/");
+    }
     @Test
     void test01SimpleAlert() {
-        Configuration.pageLoadStrategy = "eager";
-        open("https://practice-automation.com/popups/");
         $("#alert").click();
         sleep(2_000);
         switchTo().alert().accept();
@@ -18,8 +27,6 @@ public class AlertsTests {
     }
     @Test
     void test02ConfirmOk() {
-        Configuration.pageLoadStrategy = "eager";
-        open("https://practice-automation.com/popups/");
         $("#confirm").click();
         Alert alert = switchTo().alert();
         System.out.println(alert.getText());
@@ -29,7 +36,6 @@ public class AlertsTests {
     }
     @Test
     void test03ConfirmCancel() {
-        Configuration.pageLoadStrategy = "eager";
         open("https://practice-automation.com/popups/");
         $("#confirm").click();
         Alert alert = switchTo().alert();
@@ -40,7 +46,6 @@ public class AlertsTests {
     }
     @Test
     void test04PromptOk() {
-        Configuration.pageLoadStrategy = "eager";
         open("https://practice-automation.com/popups/");
         $("#prompt").click();
         Alert alert = switchTo().alert();
@@ -52,7 +57,6 @@ public class AlertsTests {
     }
     @Test
     void test05PromptCancel() {
-        Configuration.pageLoadStrategy = "eager";
         open("https://practice-automation.com/popups/");
         $("#prompt").click();
         Alert alert = switchTo().alert();
