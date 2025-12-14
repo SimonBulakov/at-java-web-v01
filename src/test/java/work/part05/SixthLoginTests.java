@@ -9,7 +9,9 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-@TestMethodOrder(MethodOrderer.MethodName.class)
+//@TestMethodOrder(MethodOrderer.MethodName.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+
 @DisplayName("Тестовый набор FourthLoginTests - проверка аутентификации")
 public class SixthLoginTests {
     @BeforeAll
@@ -56,6 +58,7 @@ public class SixthLoginTests {
     @Test
     @DisplayName("02. Корректный логин, пароль не соответствует логину - ошибка")
     @Tag("SmokeTest")
+    @Order(3)
     void test02_error_wrong_password() {
         $("#username").sendKeys("standard_user");
         $("#password").sendKeys("wrong_password");
@@ -70,6 +73,7 @@ public class SixthLoginTests {
     @Test
     @DisplayName("03. Корректные логин и пароль - успешный вход в систему по нажатию клавиши Enter на клавиатуре")
     @Tag("SmokeTest")
+    @Order(2)
     void test03_success_login_enter() {
         $("#username").sendKeys("standard_user");
         $("#password").sendKeys("secret_sauce");
@@ -84,6 +88,7 @@ public class SixthLoginTests {
     @Test
     @DisplayName("04. Выход из системы")
     @Tag("SmokeTest")
+    @Order(3)
     void test04_logout_success() {
         $("#username").sendKeys("standard_user");
         $("#password").sendKeys("secret_sauce");
@@ -167,6 +172,7 @@ public class SixthLoginTests {
     @Test
     @DisplayName("10. Пустые логин и пароль")
     @Tag("SmokeTest")
+    @Order(1)
     void test10_error_empty_login_and_password() {
         $("#loginButton").click();
         $("#message").shouldHave(text("Username and Password are required."));
