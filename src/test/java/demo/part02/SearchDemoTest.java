@@ -16,11 +16,9 @@ public class SearchDemoTest {
         SelenideElement myElement = Selenide.element(myLocator);
         myElement.shouldBe(visible);
         myElement.shouldBe(Condition.visible);
-<<<<<<< HEAD
+
 
         //Упрощенный вариант
-=======
->>>>>>> 89f20c47b46e5accd16a3aeb75e104e8b06abbaf
         element(By.id("submit-button")).shouldBe(visible);
         //Упрощенный короткий вариант
         $(By.id("submit-button")).shouldBe(visible);
