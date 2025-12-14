@@ -6,8 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 //@TestMethodOrder(MethodOrderer.MethodName.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -42,7 +41,10 @@ public class SixthLoginTests {
     //01. Корректные логин и пароль - успешный вход в систему по нажатию кнопки "Login"
     //12. Проверить вход в систему под несколькими разными логинами
     //В тестовой модели удалить тест-кейс 12, перенести в тест-кейс 01.
-    @ParameterizedTest (name = "01. Успешный вход в систему по кнопке Login под разными логинами, #{index}, username: {0}")
+    @DisplayName("01.1 Успешный вход в систему по кнопке Login под разными логинами")
+    @Tag("SmokeTest")
+    @Order(4)
+    @ParameterizedTest (name = "01.1 Успешный вход в систему по кнопке Login под разными логинами, #{index}, username: {0}")
     @ValueSource (strings = {"standard_user", "problem_user", "performance_glitch_user", "error_user", "visual_user"})
     void test01_success_login_button(String username) {
         $("#username").sendKeys(username);
@@ -53,6 +55,18 @@ public class SixthLoginTests {
         $("#message").shouldBe(cssClass("success"));
         $("#greeting").shouldHave(text("Welcome, " + username + "!"));
         $("#greeting").shouldBe(visible);
+    }
+
+    @DisplayName("01.2 Форма рассчета комиссии")
+    @Tag("SmokeTest")
+    @Order(5)
+    @ParameterizedTest (name = "01.2 Форма рассчета комиссии, #{index}, value: {0}")
+    @ValueSource (strings = {"100", "2000", "йцукен"})
+    void test01_1_input_value(String value) {
+        open("https://slqa.ru/cases/fc/v01/");
+        $x("//input[@type='text']").shouldBe(visible);
+        $x("//input[@type='text']").sendKeys(value);
+        sleep(1_000);
     }
 
     @Test
