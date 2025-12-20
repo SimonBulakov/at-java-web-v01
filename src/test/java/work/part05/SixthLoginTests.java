@@ -3,6 +3,7 @@ package work.part05;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static com.codeborne.selenide.Condition.*;
@@ -62,7 +63,7 @@ public class SixthLoginTests {
     @Order(5)
     @ParameterizedTest (name = "01.2 Форма рассчета комиссии, #{index}, value: {0}")
     @ValueSource (strings = {"100", "2000", "йцукен"})
-    void test01_1_input_value(String value) {
+    void test01_2_input_value(String value) {
         open("https://slqa.ru/cases/fc/v01/");
         $x("//input[@type='text']").shouldBe(visible);
         $x("//input[@type='text']").sendKeys(value);

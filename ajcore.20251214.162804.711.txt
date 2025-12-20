@@ -1,0 +1,128 @@
+---- AspectJ Properties ---
+AspectJ Compiler 1.9.22.1 built on Friday May 10, 2024 at 23:23:16 PDT
+---- Dump Properties ---
+Dump file: ajcore.20251214.162804.711.txt
+Dump reason: org.aspectj.weaver.BCException
+Dump on exception: true
+Dump at exit condition: abort
+---- Exception Information ---
+org.aspectj.weaver.BCException: Error processing class file
+when weaving type pages.RegistrationPage
+when weaving classes 
+when weaving 
+
+	at org.aspectj.weaver.bcel.LazyClassGen.getJavaClassBytesIncludingReweavable(LazyClassGen.java:769)
+	at org.aspectj.weaver.bcel.BcelWeaver.getClassFilesFor(BcelWeaver.java:1456)
+	at org.aspectj.weaver.bcel.BcelWeaver.weaveAndNotify(BcelWeaver.java:1418)
+	at org.aspectj.weaver.bcel.BcelWeaver.weave(BcelWeaver.java:1189)
+	at org.aspectj.weaver.tools.WeavingAdaptor.getWovenBytes(WeavingAdaptor.java:574)
+	at org.aspectj.weaver.tools.WeavingAdaptor.weaveClass(WeavingAdaptor.java:398)
+	at org.aspectj.weaver.loadtime.Aj.preProcess(Aj.java:122)
+	at org.aspectj.weaver.loadtime.ClassPreProcessorAgentAdapter.transform(ClassPreProcessorAgentAdapter.java:51)
+	at java.instrument/java.lang.instrument.ClassFileTransformer.transform(ClassFileTransformer.java:257)
+	at java.instrument/sun.instrument.TransformerManager.transform(TransformerManager.java:188)
+	at java.instrument/sun.instrument.InstrumentationImpl.transform(InstrumentationImpl.java:594)
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:962)
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:144)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:776)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:691)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:620)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:578)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:547)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.loadClass(JUnitPlatformTestClassProcessor.java:173)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.access$100(JUnitPlatformTestClassProcessor.java:62)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.execute(JUnitPlatformTestClassProcessor.java:109)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.execute(JUnitPlatformTestClassProcessor.java:99)
+	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:54)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:53)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:92)
+	at jdk.proxy1/jdk.proxy1.$Proxy4.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$2.run(TestWorker.java:183)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:132)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:103)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:63)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:122)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:72)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 69
+	at aj.org.objectweb.asm.ClassReader.<init>(ClassReader.java:200)
+	at aj.org.objectweb.asm.ClassReader.<init>(ClassReader.java:180)
+	at aj.org.objectweb.asm.ClassReader.<init>(ClassReader.java:166)
+	at org.aspectj.weaver.bcel.asm.StackMapAdder.addStackMaps(StackMapAdder.java:42)
+	at org.aspectj.weaver.bcel.LazyClassGen.getJavaClassBytesIncludingReweavable(LazyClassGen.java:771)
+	... 42 more
+---- System Properties ---
+java.specification.version=25
+sun.cpu.isalist=amd64
+sun.jnu.encoding=Cp1251
+org.gradle.test.worker=1
+java.class.path=C:\\Users\\Simon_Dev\\.gradle\\caches\\8.14\\workerMain\\gradle-worker.jar;C:\\Users\\Simon_Dev\\IdeaProjects\\at-java-web-v01\\build\\classes\\java\\test;C:\\Users\\Simon_Dev\\IdeaProjects\\at-java-web-v01\\build\\resources\\test;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.junit.jupiter\\junit-jupiter-engine\\5.11.4\\dc10ec209623986a68ea07f67cdc7d2a65a60355\\junit-jupiter-engine-5.11.4.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.junit.jupiter\\junit-jupiter-params\\5.11.4\\e4c86fbe2a39c60c6b87260ef7f7e7c1a1906481\\junit-jupiter-params-5.11.4.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\io.qameta.allure\\allure-junit5\\2.29.0\\68b8307150b9da7f5f61f6b80736f39e6d453574\\allure-junit5-2.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\io.qameta.allure\\allure-junit-platform\\2.29.0\\8e6c5904d1c078f47269ee4968825263133e265b\\allure-junit-platform-2.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.junit.jupiter\\junit-jupiter-api\\5.11.4\\308315b28e667db4091b2ba1f7aa220d1ddadb97\\junit-jupiter-api-5.11.4.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.junit.platform\\junit-platform-launcher\\1.11.4\\3d83c201899d8c5e74e1a5d628eab900342a0e48\\junit-platform-launcher-1.11.4.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.junit.platform\\junit-platform-engine\\1.11.4\\21f61b123ad6ac8f7e73971bff3a096c8d8e1cd0\\junit-platform-engine-1.11.4.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.junit.platform\\junit-platform-commons\\1.11.4\\8898eea3ed0da2641548d602c3e308804f166303\\junit-platform-commons-1.11.4.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.junit.jupiter\\junit-jupiter\\5.11.4\\a699f024a4a4706b36bddbeb42d499aff9e09379\\junit-jupiter-5.11.4.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\com.codeborne\\selenide\\7.7.3\\8d5958ecc532c5b17983e6be7568ebb445ff246a\\selenide-7.7.3.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\io.qameta.allure\\allure-selenide\\2.29.0\\a986d9e88d97c2d3d3e48fae69f91e348a2e372f\\allure-selenide-2.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.slf4j\\slf4j-simple\\2.0.12\\5fb15030fb6158ef4f63ce4f889f72f4259a7bc3\\slf4j-simple-2.0.12.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\com.codeborne\\selenide-core\\7.7.3\\cdc2ade0884df10b646e53f9a19224a89574f73a\\selenide-core-7.7.3.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.seleniumhq.selenium\\selenium-java\\4.29.0\\2cc38c8dbef9d6e8774f05c2d2e8088180858ed4\\selenium-java-4.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.seleniumhq.selenium\\selenium-chrome-driver\\4.29.0\\b88cebcf7333d13be0ac5d9ca140ff9fc99b1f8e\\selenium-chrome-driver-4.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.seleniumhq.selenium\\selenium-devtools-v131\\4.29.0\\9071645ff0b06bd25bb6aeafa31eeda8e0e524b8\\selenium-devtools-v131-4.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.seleniumhq.selenium\\selenium-devtools-v132\\4.29.0\\93cafcd500b82cae6d05cf002bdcad9cb296926b\\selenium-devtools-v132-4.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.seleniumhq.selenium\\selenium-devtools-v133\\4.29.0\\8074d99433372b81d7ce78d69d61869c27802486\\selenium-devtools-v133-4.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.seleniumhq.selenium\\selenium-devtools-v85\\4.29.0\\786a93d6de154df7c02afc77888a14b5b9068a51\\selenium-devtools-v85-4.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.seleniumhq.selenium\\selenium-edge-driver\\4.29.0\\a332f0a9452efe144ee8d79816f9e19fe39e58b4\\selenium-edge-driver-4.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.seleniumhq.selenium\\selenium-firefox-driver\\4.29.0\\84fd20244c819e3c43a6a60b91491f2fac67cbc1\\selenium-firefox-driver-4.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.seleniumhq.selenium\\selenium-ie-driver\\4.29.0\\6191ff21cdfe40cb0f465f47fa73a121bbef00de\\selenium-ie-driver-4.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.seleniumhq.selenium\\selenium-safari-driver\\4.29.0\\e2af27470b441fb8f46f3b0ef1608cf825b2c996\\selenium-safari-driver-4.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.seleniumhq.selenium\\selenium-support\\4.29.0\\c1145dd6c8e1a5afd054affceab1249c05371b52\\selenium-support-4.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.seleniumhq.selenium\\selenium-chromium-driver\\4.29.0\\e792bead1460f1239bdf8ad319f8e3ca44fddf04\\selenium-chromium-driver-4.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.seleniumhq.selenium\\selenium-remote-driver\\4.29.0\\93a4b68a316657976882b4aa3745bf15c0be6c0\\selenium-remote-driver-4.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.seleniumhq.selenium\\selenium-manager\\4.29.0\\1e1800e980690f6642a3b9f705302f03fd070374\\selenium-manager-4.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.seleniumhq.selenium\\selenium-http\\4.29.0\\bfdb9d7a4a5686aef2ca1e1357437533c5305bf4\\selenium-http-4.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.seleniumhq.selenium\\selenium-json\\4.29.0\\29358392fe46e47a9b12411cb8ab4376af1d0f68\\selenium-json-4.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.seleniumhq.selenium\\selenium-os\\4.29.0\\2e7ab2c1b46c9002de68078fae3bbba8aeefb9e9\\selenium-os-4.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.seleniumhq.selenium\\selenium-api\\4.29.0\\a158a3d0aa2eb47270c0add15f6278891bfe390d\\selenium-api-4.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.jspecify\\jspecify\\1.0.0\\7425a601c1c7ec76645a78d22b8c6a627edee507\\jspecify-1.0.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\com.google.guava\\guava\\33.4.0-jre\\3fcc0a259f724c7de54a6a55ea7e26d3d5c0cac\\guava-33.4.0-jre.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\com.google.errorprone\\error_prone_annotations\\2.36.0\\227d4d4957ccc3dc5761bd897e3a0ee587e750a7\\error_prone_annotations-2.36.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.apache.commons\\commons-lang3\\3.17.0\\b17d2136f0460dcc0d2016ceefca8723bdf4ee70\\commons-lang3-3.17.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\commons-io\\commons-io\\2.18.0\\44084ef756763795b31c578403dd028ff4a22950\\commons-io-2.18.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\io.qameta.allure\\allure-test-filter\\2.29.0\\7de6b2c0271f8f67c743cdeabf6129a5cc385f1d\\allure-test-filter-2.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\io.qameta.allure\\allure-java-commons\\2.29.0\\f3ef14fd3e84e3f2c30a150bf8fd6b54372ba6d0\\allure-java-commons-2.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.apache.httpcomponents.client5\\httpclient5\\5.4.2\\d6a4248833d6d3d0e8ca318cd342826585bc1805\\httpclient5-5.4.2.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.slf4j\\slf4j-api\\2.0.16\\172931663a09a1fa515567af5fbef00897d3c04\\slf4j-api-2.0.16.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.opentest4j\\opentest4j\\1.3.0\\152ea56b3a72f655d4fd677fc0ef2596c3dd5e6e\\opentest4j-1.3.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\com.google.guava\\failureaccess\\1.0.2\\c4a06a64e650562f30b7bf9aaec1bfed43aca12b\\failureaccess-1.0.2.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\com.google.guava\\listenablefuture\\9999.0-empty-to-avoid-conflict-with-guava\\b421526c5f297295adef1c886e5246c39d4ac629\\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.checkerframework\\checker-qual\\3.43.0\\9425eee39e56b116d2b998b7c2cebcbd11a3c98b\\checker-qual-3.43.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\com.google.j2objc\\j2objc-annotations\\3.0.0\\7399e65dd7e9ff3404f4535b2f017093bdb134c7\\j2objc-annotations-3.0.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\com.github.valfirst.browserup-proxy\\browserup-proxy-core\\3.1.2\\b392a03ee19d0f920436bb997fa8ea347dfb73a6\\browserup-proxy-core-3.1.2.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\io.qameta.allure\\allure-model\\2.29.0\\9c3cee5f8a5b9448a647610111a61046604054b9\\allure-model-2.29.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\com.google.auto.service\\auto-service-annotations\\1.1.1\\da12a15cd058ba90a0ff55357fb521161af4736d\\auto-service-annotations-1.1.1.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\io.opentelemetry.semconv\\opentelemetry-semconv\\1.28.0-alpha\\90d4d4dc28153eed4af75759b610a1bf81b77b75\\opentelemetry-semconv-1.28.0-alpha.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\io.opentelemetry\\opentelemetry-exporter-logging\\1.46.0\\a0ef76a383a086b812395ca5a5cdf94804a59a3f\\opentelemetry-exporter-logging-1.46.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\io.opentelemetry\\opentelemetry-sdk-extension-autoconfigure\\1.46.0\\6b2e0222c1130da6005677394fe957e75a97d8f3\\opentelemetry-sdk-extension-autoconfigure-1.46.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\io.opentelemetry\\opentelemetry-sdk-extension-autoconfigure-spi\\1.46.0\\eb2081c3e8a3e73cab3c0c47ad8fb59e39216dc5\\opentelemetry-sdk-extension-autoconfigure-spi-1.46.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\io.opentelemetry\\opentelemetry-sdk\\1.46.0\\b3a77fff1084177c4f5099bbb7db6181d6efd752\\opentelemetry-sdk-1.46.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\io.opentelemetry\\opentelemetry-sdk-trace\\1.46.0\\c6e39faabf0741780189861156d0a7763e942796\\opentelemetry-sdk-trace-1.46.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\io.opentelemetry\\opentelemetry-sdk-metrics\\1.46.0\\475d900ffd0567a7ddf2452290b2e5d51ac35c58\\opentelemetry-sdk-metrics-1.46.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\io.opentelemetry\\opentelemetry-sdk-logs\\1.46.0\\1bd9bb4f3ce9ac573613b353a78d51491cd02bbd\\opentelemetry-sdk-logs-1.46.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\io.opentelemetry\\opentelemetry-sdk-common\\1.46.0\\1d353ee4e980ff77c742350fc7000b732b6c6b3f\\opentelemetry-sdk-common-1.46.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\io.opentelemetry\\opentelemetry-api-incubator\\1.46.0-alpha\\1a708444d2818ac1a47767a2b35d74ef55d26af8\\opentelemetry-api-incubator-1.46.0-alpha.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\io.opentelemetry\\opentelemetry-api\\1.46.0\\afd2d5781454088400cceabbe84f7a9b29d27161\\opentelemetry-api-1.46.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\io.opentelemetry\\opentelemetry-context\\1.46.0\\8cee1fa7ec9129f7b252595c612c19f4570d567f\\opentelemetry-context-1.46.0.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\net.bytebuddy\\byte-buddy\\1.15.11\\f61886478e0f9ee4c21d09574736f0ff45e0a46c\\byte-buddy-1.15.11.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.apache.httpcomponents.core5\\httpcore5-h2\\5.3.3\\72240efe9cf4683613f01bac5bca4fe6b06ba497\\httpcore5-h2-5.3.3.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.apache.httpcomponents.core5\\httpcore5\\5.3.3\\d6c702631841d1f3202c1f10973a98bab833fe23\\httpcore5-5.3.3.jar;C:\\Users\\Simon_Dev\\.gradle\\caches\\modules-2\\files-2.1\\org.apache.commons\\commons-exec\\1.4.0\\e9061b21958bfaf1cb736eb22e36cbf02d8fe9f\\commons-exec-1.4.0.jar
+java.vm.vendor=Oracle Corporation
+sun.arch.data.model=64
+user.variant=
+java.vendor.url=https://java.oracle.com/
+user.timezone=Europe/Moscow
+java.vm.specification.version=25
+os.name=Windows 10
+user.country=RU
+sun.java.launcher=SUN_STANDARD
+sun.boot.library.path=C:\Program Files\Java\jdk-25\bin
+sun.java.command=worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 1'
+jdk.debug=release
+allure.results.directory=C:\Users\Simon_Dev\IdeaProjects\at-java-web-v01\build\allure-results
+sun.cpu.endian=little
+user.home=C:\Users\Simon_Dev
+user.language=ru
+java.specification.vendor=Oracle Corporation
+java.version.date=2025-10-21
+java.home=C:\Program Files\Java\jdk-25
+file.separator=\
+java.vm.compressedOopsMode=32-bit
+line.separator=
+
+java.vm.specification.vendor=Oracle Corporation
+java.specification.name=Java Platform API Specification
+user.script=
+sun.management.compiler=HotSpot 64-Bit Tiered Compilers
+java.runtime.version=25.0.1+8-LTS-27
+user.name=Simon_Dev
+stdout.encoding=Cp1251
+path.separator=;
+os.version=10.0
+java.runtime.name=Java(TM) SE Runtime Environment
+file.encoding=UTF-8
+java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+java.vendor.url.bug=https://bugreport.java.com/bugreport/
+java.io.tmpdir=C:\Users\SIMON_~1\AppData\Local\Temp\
+java.version=25.0.1
+user.dir=C:\Users\Simon_Dev\IdeaProjects\at-java-web-v01
+os.arch=amd64
+java.vm.specification.name=Java Virtual Machine Specification
+org.gradle.internal.worker.tmpdir=C:\Users\Simon_Dev\IdeaProjects\at-java-web-v01\build\tmp\test\work
+sun.os.patch.level=
+native.encoding=Cp1251
+java.library.path=C:\Program Files\Java\jdk-25\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\Simon_Dev\AppData\Local\Microsoft\WindowsApps;;.
+junit.jupiter.extensions.autodetection.enabled=true
+java.vm.info=mixed mode, sharing
+stderr.encoding=Cp1251
+java.vendor=Oracle Corporation
+java.vm.version=25.0.1+8-LTS-27
+stdin.encoding=Cp1251
+sun.io.unicode.encoding=UnicodeLittle
+java.class.version=69.0
+---- Command Line ---
+Empty
+---- Full Classpath ---
+Empty
+---- Compiler Messages ---
+Empty
