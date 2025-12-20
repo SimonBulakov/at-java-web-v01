@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 //Занятие-3 - ДЗ - автотестирование. AT-3 (*). Слайд 47
-@DisplayName("Тестовый набор: Занятие-3 - ДЗ - автотестирование. АТ-2 (*Параметризированное)")
+@DisplayName("Тестовый набор: Занятие-3 - ДЗ - автотестирование. АТ-3 (*Параметризированное)")
 @TestMethodOrder(MethodOrderer.MethodName.class)
 public class DzAt03 {
     //String[] browsers = {"chrome", "firefox"}; //edge на виртуалке не срабатывает, разобраться потом с обновлением
