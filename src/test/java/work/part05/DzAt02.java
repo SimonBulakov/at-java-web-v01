@@ -8,7 +8,7 @@ import java.util.Random;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
-//Задание 3.6 Слайд 28
+//Занятие-3 - ДЗ - автотестирование. AT-2 (обязательное). Слайд 47
 @DisplayName("Тестовый набор: Занятие-3 - ДЗ - автотестирование. АТ-2 (обязательное)")
 @TestMethodOrder(MethodOrderer.MethodName.class)
 public class DzAt02 {
