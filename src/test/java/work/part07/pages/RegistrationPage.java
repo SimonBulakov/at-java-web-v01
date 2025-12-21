@@ -44,6 +44,19 @@ public class RegistrationPage {
         buttonFinishRegistration.click();
     }
 
+    @Step("Успешная регистрация с заполнение полей и завершением")
+    public void successRegistration(String fio, String passport, String email, String phone) {
+        this.fio.setValue(fio);
+        this.passport.setValue(passport);
+        this.email.setValue(email);
+        this.phone.setValue(phone);
+        buttonFinishRegistration.click();
+        Alert alert= switchTo().alert();
+        assertTrue(alert.getText().contains("Бронирование завершено"));
+        alert.accept();
+        this.message.shouldHave(text("Регистрация успешно завершена!"));
+    }
+
     @Step("Появилась ошибка Заполните все поля")
     public void isErrorFillAllFied() {
         this.message.shouldHave(text("Пожалуйста, заполните все поля."));

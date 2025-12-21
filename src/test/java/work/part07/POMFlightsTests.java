@@ -150,9 +150,8 @@ public class POMFlightsTests {
         // Страница регистрации на рейс - ввод данных с пустым паспортом (с проверкой на сообщение об ошибке)
         registrationPage.registration("Иванов Иван Иванович","", "ivanov@example.com", "+7 (123) 456-7890");
         registrationPage.isErrorFillAllFied();
-        // Страница регистрации на рейс - ввод корректных данных (с последующей пзавершением регистрации)
-        registrationPage.registration("Иванов Иван Иванович","1234 567890", "ivanov@example.com", "+7 (123) 456-7890");
-        registrationPage.successDefaultRegistration();
+        // Страница регистрации на рейс - ввод корректных данных (с последующей завершением регистрации)
+        registrationPage.successRegistration("Иванов Иван Иванович","1234 567890", "ivanov@example.com", "+7 (123) 456-7890");
 
     }
 
