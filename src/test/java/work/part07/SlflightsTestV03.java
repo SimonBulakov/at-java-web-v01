@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.*;
 //Модуль7. Задание Слайд 5
 @DisplayName("Тестовый набор: Модуль7. Задание Слайд 5")
 @TestMethodOrder(MethodOrderer.MethodName.class)
-public class SlflightsTest02 {
+public class SlflightsTestV03 {
     String[] browsers = {"chrome"}; //edge на виртуалке не срабатывает, разобраться потом с обновлением
     String randomBrowser = browsers[new Random().nextInt(browsers.length)];
 
