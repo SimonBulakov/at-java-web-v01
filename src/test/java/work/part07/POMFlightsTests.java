@@ -137,7 +137,7 @@ public class POMFlightsTests {
         flightsList.isNoFlights();
 
         //Возврат на страницу поиска и новый поиск
-        searchPage.backButton();
+        flightsList.backButton();
         searchPage.search("16/03/2026", "Москва", "Нью-Йорк");
 
         // Страница со списком найденных рейсов и регистрация по первмоу найденному

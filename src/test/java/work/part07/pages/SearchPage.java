@@ -13,7 +13,6 @@ public class SearchPage {
             cityTo = $("#arrivalCity"),
             departureDate = $("#departureDate"),
             findButton = $x("//button[.='Найти']"),
-            backButton = $x("//button[.='Новый поиск']"),
             message = $("#searchMessage");
 
     @Step("Поиск рейсов (задаём только дату)")
@@ -28,11 +27,6 @@ public class SearchPage {
         this.cityFrom.selectOption(from);
         this.cityTo.selectOption(to);
         this.findButton.click();
-    }
-
-    @Step("Возврат на новый поиск")
-    public void backButton() {
-        this.backButton.click();
     }
 
     @Step("Проверка, что дата не указана")
