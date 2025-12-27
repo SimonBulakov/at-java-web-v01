@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -13,7 +14,9 @@ public class SearchPage {
             cityTo = $("#arrivalCity"),
             departureDate = $("#departureDate"),
             findButton = $x("//button[.='Найти']"),
-            message = $("#searchMessage");
+            message = $("#searchMessage"),
+            logoutButton = $x("//button[@id='logoutButton']"),
+            autontText = $x("//*[@id='loginContainer']/h2[text()='Аутентификация']");
 
     @Step("Поиск рейсов (задаём только дату)")
     public void search(String departureDate) {
@@ -27,6 +30,12 @@ public class SearchPage {
         this.cityFrom.selectOption(from);
         this.cityTo.selectOption(to);
         this.findButton.click();
+    }
+
+    @Step("Проверка, что кнопка Logout работает")
+    public void isLogoutButtonUse() {
+        this.logoutButton.click();
+        this.autontText.shouldBe(visible);
     }
 
     @Step("Проверка, что дата не указана")

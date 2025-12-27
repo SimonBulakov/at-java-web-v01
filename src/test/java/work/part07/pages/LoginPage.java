@@ -5,6 +5,7 @@ import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class LoginPage {
     SelenideElement
@@ -24,6 +25,26 @@ public class LoginPage {
     @Step("Неуспешный логин")
     public void isLoginUnsuccessful() {
         this.errorMessage.shouldHave(text("Неверное имя пользователя или пароль."));
+    }
+
+    @Step("Пустой логин")
+    public void isEmptyLogin() {
+        this.errorMessage.shouldHave(text("Username is required."));
+    }
+
+    @Step("Пустой пароль")
+    public void isEmptyPassword() {
+        this.errorMessage.shouldHave(text("Password is required."));
+    }
+
+    @Step("Пустой логин и пароль")
+    public void isEmptyLoginAndPassword() {
+        this.errorMessage.shouldHave(text("Username and Password are required."));
+    }
+
+    @Step("Заблокированный пользователь")
+    public void isBlockedUser() {
+        this.errorMessage.shouldHave(text("Пользователь заблокирован."));
     }
 
     @Step("Успешный логин")

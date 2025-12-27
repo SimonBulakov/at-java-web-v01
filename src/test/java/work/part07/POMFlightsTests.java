@@ -122,6 +122,9 @@ public class POMFlightsTests {
     }
 
     // 7. Цепочка тестов
+    //Успешный логин - Поиск рейса - Рейсы не найденны - возврат на страницу поиска
+    //Новый поиск - регистраиця на первый найденный - провевка корректности рейса - ввод пустого паспорта (сообщение о ошибке)
+    //Ввод корректных данных с последующей завершением регистрации
     @Test
     void test07ChainTests(){
         // Страница логина
@@ -153,11 +156,58 @@ public class POMFlightsTests {
         registrationPage.isErrorFillAllFied();
         // Страница регистрации на рейс - ввод корректных данных (с последующей завершением регистрации)
         registrationPage.successRegistration("Иванов Иван Иванович","1234 567890", "ivanov@example.com", "+7 (123) 456-7890");
-
     }
 
+    //Домашнее задание
+
+    //1. Тестирование авторизации
+    //1.3 Проверить вход с пустыми полями
+    //Пустой Логин
+    //Пустой пароль
+    //Пустой логин и пароль
     @Test
-    void test08ShowDateTime() {
+    void test08EmptyLoginOrPassword() {
+        // Страница логина
+        LoginPage loginPage = new LoginPage();
+        //Пустой логин
+        loginPage.login("", "stand_pass1");
+        loginPage.isEmptyLogin();
+        //Пустой пароль
+        loginPage.login("standard_user", "");
+        loginPage.isEmptyPassword();
+        //Пустой логин и пароль
+        loginPage.login("", "");
+        loginPage.isEmptyLoginAndPassword();
+    }
+
+    //1.4 Проверить вход заблокированного пользователя (locked_out_user)
+    @Test
+    void test09BlockedUser() {
+        // Страница логина
+        LoginPage loginPage = new LoginPage();
+        //Вводим данные заблокированнго пользователя
+        loginPage.login("locked_out_user", "lock_pass2");
+        loginPage.isBlockedUser();
+    }
+
+    //1.5 Проверить кнопку выхода (Logout)
+    @Test
+    void test10ButtonLogout() {
+        // Страница логина
+        LoginPage loginPage = new LoginPage();
+        //Вводим данные заблокированнго пользователя
+        loginPage.login("standard_user", "stand_pass1");
+        loginPage.isLoginSuccessful("Иванов Иван Иванович");
+
+        // Страница поиска рейсов - нажатие на logout и проверка перехода на страницу авторизации (Видимость эемента с тектом Аутентификация)
+        SearchPage searchPage = new SearchPage();
+        searchPage.isLogoutButtonUse();
+    }
+
+    //3. Тестирование списка рейсов
+    //3.2 Проверить сортировку по времени вылета по возрастанию
+    @Test
+    void test07FlightsListSortByTime(){
         // Страница логина
         LoginPage loginPage = new LoginPage();
         loginPage.login("standard_user", "stand_pass1");
@@ -165,9 +215,32 @@ public class POMFlightsTests {
 
         // Страница поиска рейсов
         SearchPage searchPage = new SearchPage();
-        searchPage.search("16.03.2026", "Москва", "Нью-Йорк");
+        searchPage.search("16/03/2026", "Москва", "Нью-Йорк");
 
+        // Страница со списком найденных рейсов (Рейсы не  найдены)
         FlightsListPage flightsList = new FlightsListPage();
-        flightsList.testCollection();
-    }
+
+        //Простые проверки сортировки по цене
+        //Нажатие кнопки сортировки по цене и по возрастанию
+        flightsList.sortByPriceAsc();
+        //Нажатие кнопки сортировки по цене и по возрастанию
+        flightsList.sortByPriceDesc();
+
+        //Нажатие кнопки сортировки времени вылета и по убыванию
+        flightsList.sortByTimeDesc();
+
+        //Нажатие кнопки времени вылета и по возрастанию и проверка, что время вылета отсортированно по возрастанию (HappyPath)
+        flightsList.sortByTimeAsc();
+        flightsList.testDepartureTimeSorting();
+
+        //Для проверки, что если сортировка времени не по возрастанию, то получим ошибку выполнения теста (корректность метода testDepartureTimeSorting)
+        // "Времена вылетов не отсортированы правильно!"
+        //!!! Расскоментировать для проверки
+        /*
+        //Нажатие кнопки сортировки времени вылета и по убыванию
+        flightsList.sortByTimeDesc();
+        flightsList.testDepartureTimeSorting();
+        */
+     }
+
 }
