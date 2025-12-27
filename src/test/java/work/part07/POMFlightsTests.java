@@ -2,6 +2,8 @@ package work.part07;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import work.part07.pages.FlightsListPage;
 import work.part07.pages.LoginPage;
 import work.part07.pages.RegistrationPage;
@@ -12,7 +14,6 @@ import org.junit.jupiter.api.*;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.sleep;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-
 
 @TestMethodOrder(MethodOrderer.DisplayName.class)
 public class POMFlightsTests {
@@ -155,4 +156,18 @@ public class POMFlightsTests {
 
     }
 
+    @Test
+    void test08ShowDateTime() {
+        // Страница логина
+        LoginPage loginPage = new LoginPage();
+        loginPage.login("standard_user", "stand_pass1");
+        loginPage.isLoginSuccessful("Иванов Иван Иванович");
+
+        // Страница поиска рейсов
+        SearchPage searchPage = new SearchPage();
+        searchPage.search("16.03.2026", "Москва", "Нью-Йорк");
+
+        FlightsListPage flightsList = new FlightsListPage();
+        flightsList.testCollection();
+    }
 }
