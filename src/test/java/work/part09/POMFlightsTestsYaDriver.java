@@ -1,30 +1,50 @@
-package work.part07;
+package work.part09;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.*;
 import work.part07.pages.FlightsListPage;
 import work.part07.pages.LoginPage;
 import work.part07.pages.RegistrationPage;
 import work.part07.pages.SearchPage;
-import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.*;
 
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static com.codeborne.selenide.Selenide.sleep;
 
 @TestMethodOrder(MethodOrderer.DisplayName.class)
-public class POMFlightsTests {
+
+public class POMFlightsTestsYaDriver {
     @BeforeAll
     static void beforeAll() {
         SelenideLogger.addListener("allure", new AllureSelenide());
-    }
+        /*
+        // Устанавливаем ChromeDriver (совместим с Яндекс.Браузером)
+        WebDriverManager.chromedriver().setup();
+        // Указываем путь к Яндекс.Браузеру
+        ChromeOptions options = new ChromeOptions();
+        options.setBinary("C:/Users/Simon_Dev/AppData/Local/Yandex/YandexBrowser/Application/browser.exe");
+        Configuration.browserCapabilities = options;
+        Configuration.browser = "chrome";
+        Configuration.headless = false;
+        */
+     }
+
 
     @BeforeEach
     void setUp() {
-        Configuration.browser = "chrome"; //"firefox "
         open("https://slqamsk.github.io/cases/slflights/v01/");
-        getWebDriver().manage().window().maximize();
     }
+
+    @Test
+    void checkBrowser() {
+        Configuration.reportsFolder = "test-results/reports";
+        Configuration.timeout = 10000;
+        open("chrome://version/");
+        // Должна отобразиться информация о Яндекс.Браузере
+    }
+
     // ... Автотесты
     // 1. Неуспешный логин
     @Test
@@ -32,6 +52,7 @@ public class POMFlightsTests {
         LoginPage loginPage = new LoginPage();
         loginPage.login("standard_user", "WrongPassword");
         loginPage.isLoginUnsuccessful();
+        sleep(10_000);
     }
 
     // 2. Не задана дата
