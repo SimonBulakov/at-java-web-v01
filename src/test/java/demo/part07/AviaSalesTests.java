@@ -5,13 +5,14 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Keys;
 
 import java.time.Duration;
 import java.util.Objects;
 
 public class AviaSalesTests {
     @Test
-    void test01ChangeFromCity() {
+    void test01ChangeCityFromDirtyFix() {
         //Configuration.pageLoadStrategy = "eager"; // Без полной загрузки не работает
         Configuration.pageLoadTimeout = 180_000; // Увеличиваем время для полной загрузки до 3 минут.
         // Страница нестабильная: иногда быстро загружается, иногда требуется больше минуты
@@ -35,5 +36,26 @@ public class AviaSalesTests {
             se.setValue("").setValue(cityTo);
             System.out.println(se.getValue());
         }
+    }
+
+    @Test
+    void test02ChangeCityFromSolution() {
+        //Проверим, а если просто подождать, то не будет ли всё хорошо работать
+        Configuration.pageLoadTimeout = 180_000;
+        for (int i = 0; i < 30; i++) {
+            open("https://aviasales.ru/");
+            SelenideElement se = $("#avia_form_origin-input");
+            se.shouldBe(Condition.interactable, Duration.ofSeconds(30));
+            se.shouldNotBe(Condition.readonly, Duration.ofSeconds(30));
+            System.out.println("До    : " + se.getValue());
+            String cityTo = "Новосибирск";
+            se.click();
+            System.out.println("Click : " + se.getValue());
+            se.sendKeys(Keys.DELETE);
+            System.out.println("Delete: " + se.getValue());
+            se.sendKeys(cityTo);
+            System.out.println("После : " + se.getValue() + "\n");
+        }
+
     }
 }
