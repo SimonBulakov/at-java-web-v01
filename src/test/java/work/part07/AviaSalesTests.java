@@ -15,20 +15,20 @@ public class AviaSalesTests {
     @BeforeAll
     static void beforeAll() {
         SelenideLogger.addListener("allure", new AllureSelenide());
+        Configuration.pageLoadStrategy = "eager"; // Без полной загрузки не работает
+        Configuration.browser = "chrome"; //"firefox "
+        open("https://www.aviasales.ru/");
     }
 
     @BeforeEach
     void setUp() {
-        Configuration.pageLoadTimeout = 180_000; // Увеличиваем время для полной загрузки до 1 минут.
-        Configuration.browser = "chrome"; //"firefox "
-        //webdriver().object().manage().window().maximize();
-        open("https://www.aviasales.ru/");
+        //Configuration.pageLoadTimeout = 60_000; // Увеличиваем время для полной загрузки до 1 минут.
     }
 
     @Test
     void test01AiroportFromSelection() {
-        Configuration.pageLoadTimeout = 60_000; // Увеличиваем время для полной загрузки до 1 минут.
         AviasailTopElementPage atePage = new AviasailTopElementPage();
+        atePage.cookiesUseButton(); //Закрываем окно с куки
         atePage.selectAirportFrom("Владивосток");
         sleep(3000);
     }
@@ -43,7 +43,7 @@ public class AviaSalesTests {
     @Test
     void test03setDateWhen() {
         AviasailTopElementPage atePage = new AviasailTopElementPage();
-        atePage.setDepartureDate("1 января, чт");
+        atePage.setDepartureDate("2026-01-05");
         sleep(3000);
     }
 
